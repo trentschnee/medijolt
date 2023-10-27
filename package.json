@@ -1,5 +1,6 @@
 {
-  "name": "medijolt",
+  "name": "@medijolt/source",
+  "version": "0.0.0",
   "description": "An Electronic Medication Administration Record (EMAR) web application with an Angular frontend and Nest.js API backend, managed as a monorepo using Nx.",
   "keywords": [
     "Angular",
@@ -22,7 +23,6 @@
     "name": "Trent Schneweis",
     "url": "https://linkedin.com/in/trentschnee/"
   },
-  "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/trentschnee/medijolt/issues"
@@ -33,9 +33,14 @@
     "url": "git+https://github.com/trentschnee/medijolt.git"
   },
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "start:all": "nx run-many --target=serve --projects=web-app --parallel",
+    "test:all": "nx affected:test",
+    "build:all": "nx affected:build",
+    "lint:all": "nx affected:lint",
+    "start:web": "nx serve web-app",
+    "build:web": "nx build web-app",
+    "unit-test:web": "nx test web-app",
+    "e2e-test:web": "nx e2e web-app-e2e"
   },
   "private": true,
   "dependencies": {

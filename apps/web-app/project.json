@@ -10,7 +10,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/web-app",
+        "outputPath": "dist/apps/web-app",
         "index": "apps/web-app/src/index.html",
         "main": "apps/web-app/src/main.ts",
         "polyfills": ["zone.js"],
@@ -68,17 +68,14 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/web-app/src/**/*.ts",
-          "apps/web-app/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/web-app/**/*.ts", "apps/web-app/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/web-app/jest.config.app.ts",
+        "jestConfig": "apps/web-app/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
