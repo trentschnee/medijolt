@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'myngapp',
+  displayName: 'web-app',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/myngapp',
+  coverageDirectory: './coverage/web-app',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

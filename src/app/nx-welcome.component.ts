@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'myngapp-nx-welcome',
+  selector: 'web-app-nx-welcome',
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -423,7 +423,7 @@ import { CommonModule } from '@angular/common';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome myngapp 👋
+            Welcome web-app 👋
           </h1>
         </div>
         <!--  HERO  -->
@@ -853,4 +853,4 @@ nx affected:e2e</pre>
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcomeComponent {}
+export class NxWelcomeComponent { }
