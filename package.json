@@ -1,7 +1,37 @@
 {
-  "name": "@myngapp/source",
+  "name": "medijolt",
+  "description": "An Electronic Medication Administration Record (EMAR) web application with an Angular frontend and Nest.js API backend, managed as a monorepo using Nx.",
+  "keywords": [
+    "Angular",
+    "MongoDB",
+    "Next.JS",
+    "electronic",
+    "medication",
+    "administrative",
+    "record",
+    "medications",
+    "prescriptions",
+    "patients",
+    "cms",
+    "epic",
+    "alternative",
+    "app",
+    "realtime"
+  ],
+  "author": {
+    "name": "Trent Schneweis",
+    "url": "https://linkedin.com/in/trentschnee/"
+  },
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/trentschnee/medijolt/issues"
+  },
+  "homepage": "https://github.com/trentschnee/medijolt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trentschnee/medijolt.git"
+  },
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
