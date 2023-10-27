@@ -1,6 +1,6 @@
 {
-  "name": "@medijolt/source",
-  "version": "0.0.0",
+  "name": "medijolt",
+  "version": "0.0.1",
   "description": "An Electronic Medication Administration Record (EMAR) web application with an Angular frontend and Nest.js API backend, managed as a monorepo using Nx.",
   "keywords": [
     "Angular",
