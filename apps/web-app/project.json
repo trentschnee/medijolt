@@ -1,9 +1,9 @@
 {
   "name": "web-app",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "web-app",
-  "sourceRoot": "./src",
+  "sourceRoot": "apps/web-app/src",
   "tags": [],
   "targets": {
     "build": {
@@ -11,12 +11,12 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/web-app",
-        "index": "./src/index.html",
-        "main": "./src/main.ts",
+        "index": "apps/web-app/src/index.html",
+        "main": "apps/web-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "./tsconfig.app.json",
-        "assets": ["./src/favicon.ico", "./src/assets"],
-        "styles": ["./src/styles.scss"],
+        "tsConfig": "apps/web-app/tsconfig.app.json",
+        "assets": ["apps/web-app/src/favicon.ico", "apps/web-app/src/assets"],
+        "styles": ["apps/web-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -68,14 +68,17 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["./src/**/*.ts", "./src/**/*.html"]
+        "lintFilePatterns": [
+          "apps/web-app/src/**/*.ts",
+          "apps/web-app/src/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts",
+        "jestConfig": "apps/web-app/jest.config.app.ts",
         "passWithNoTests": true
       },
       "configurations": {
