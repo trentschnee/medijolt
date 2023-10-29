@@ -1,0 +1,30 @@
+# .github/workflows/release.yml
+name: Release
+
+on:
+  push:
+    branches:
+      - main # replace 'main' with your branch name if it's different
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install semantic-release extra plugins
+        run: npm install --save-dev @semantic-release/changelog @semantic-release/git
+
+      - name: Semantic Release
+        run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
