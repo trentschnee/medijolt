@@ -45,7 +45,8 @@
     "start:api": "nx serve api-app",
     "build:api": "nx build api-app",
     "unit-test:api": "nx test api-app",
-    "e2e-test:api": "nx e2e api-app-e2e"
+    "e2e-test:api": "nx e2e api-app-e2e",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -90,6 +91,8 @@
     "@nx/webpack": "17.0.2",
     "@nx/workspace": "17.0.2",
     "@schematics/angular": "~16.2.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@swc-node/register": "~1.6.7",
     "@swc/core": "~1.3.85",
     "@types/jest": "^29.4.0",
