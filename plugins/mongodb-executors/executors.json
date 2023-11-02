@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "mongodb-start": {
+      "implementation": "./src/executors/mongodb-start/executor",
+      "schema": "./src/executors/mongodb-start/schema.json",
+      "description": "mongodb-start executor"
+    }
+  }
+}
