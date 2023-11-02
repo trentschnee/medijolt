@@ -24,9 +24,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: '20.9.0' # Updated to the latest LTS version
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Changed to npm ci for a clean install based on lock file
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - name: Release
