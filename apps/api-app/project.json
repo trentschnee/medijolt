@@ -4,6 +4,12 @@
   "sourceRoot": "apps/api-app/src",
   "projectType": "application",
   "targets": {
+    "mongodb-start": {
+      "executor": "@plugins/mongodb-executors:mongodb-start",
+      "options": {
+        "dockerComposeFilePath": "./apps/api-app/docker/docker-compose.yml"
+      }
+    },
     "build": {
       "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
@@ -36,7 +42,13 @@
         "production": {
           "buildTarget": "api-app:build:production"
         }
-      }
+      },
+      "dependsOn": [
+        {
+          "target": "mongodb-start",
+          "projects": "self"
+        }
+      ]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
