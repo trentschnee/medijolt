@@ -1,7 +1,10 @@
+#NOT FOR PRODUCTION!
 services:
-  db:
+  medijolt-db:
     image: mongo:latest
-    environment:
-      - MONGODB_DATABASE="test"
     ports:
-      - 27017:27017
+      - '27017:27017' # Expose MongoDB on the default port
+    volumes:
+      - medijolt-db:/data/db
+volumes:
+  medijolt-db: # Persistent volume for MongoDB data
