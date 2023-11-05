@@ -1,3 +1,4 @@
+#NOT FOR PRODUCTION!
 version: '3.7'
 
 services:
@@ -11,6 +12,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: zPETms
     volumes:
+      - medijolt-db:/data/db
       - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 volumes:
   medijolt-db: # Persistent volume for MongoDB data
