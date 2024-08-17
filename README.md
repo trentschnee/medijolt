@@ -6,7 +6,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/)
-
+- [Docker](https://www.docker.com/)
 # Installation
 
 1. Clone the repository:
@@ -23,7 +23,7 @@ npm install
 ```
 4. Run the development server:
 ```bash
-ng serve
+npm run start:all
 ```
 # License
 
