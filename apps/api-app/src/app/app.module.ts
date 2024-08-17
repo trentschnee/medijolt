@@ -1,11 +1,9 @@
+import { UsersModule } from '@medijolt/api/users';
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
+  imports: [UsersModule],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
