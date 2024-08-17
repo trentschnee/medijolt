@@ -20,6 +20,19 @@
         "outputPath": "dist/apps/api-app",
         "main": "apps/api-app/src/main.ts",
         "tsConfig": "apps/api-app/tsconfig.app.json",
+        "tsPlugins": [
+          {
+            "name": "@nestjs/swagger/plugin",
+            "options": {
+              "dtoFileNameSuffix": [ ".entity.ts", ".dto.ts" ],
+              "controllerFileNameSuffix": [ ".controller.ts" ],
+              "classValidatorShim": true,
+              "dtoKeyOfComment": "description",
+              "controllerKeyOfComment": "description",
+              "introspectComments": true
+            }
+          }
+        ],
         "assets": [ "apps/api-app/src/assets" ],
         "isolatedConfig": true,
         "webpackConfig": "apps/api-app/webpack.config.js"
