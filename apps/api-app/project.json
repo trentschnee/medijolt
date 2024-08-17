@@ -7,12 +7,12 @@
     "mongodb-start": {
       "executor": "@plugins/mongodb-executors:mongodb-start",
       "options": {
-        "dockerComposeFilePath": "./apps/api-app/docker/docker-compose.yml"
+        "dockerComposeFilePath": "apps/api-app/docker/docker-compose.yml"
       }
     },
     "build": {
       "executor": "@nx/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [ "{options.outputPath}" ],
       "defaultConfiguration": "production",
       "options": {
         "target": "node",
@@ -20,13 +20,13 @@
         "outputPath": "dist/apps/api-app",
         "main": "apps/api-app/src/main.ts",
         "tsConfig": "apps/api-app/tsconfig.app.json",
-        "assets": ["apps/api-app/src/assets"],
+        "assets": [ "apps/api-app/src/assets" ],
         "isolatedConfig": true,
         "webpackConfig": "apps/api-app/webpack.config.js"
       },
       "configurations": {
-        "development": {},
-        "production": {}
+        "development": { "DATABASE_URL": "mongodb://medijolt_db_user:PRuEpa@localhost:27017/medijolt_db?authSource=medijolt_db" },
+        "production": { }
       }
     },
     "serve": {
@@ -52,14 +52,14 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [ "{options.outputFile}" ],
       "options": {
-        "lintFilePatterns": ["apps/api-app/**/*.ts"]
+        "lintFilePatterns": [ "apps/api-app/**/*.ts" ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [ "{workspaceRoot}/coverage/{projectRoot}" ],
       "options": {
         "jestConfig": "apps/api-app/jest.config.ts",
         "passWithNoTests": true
@@ -72,5 +72,5 @@
       }
     }
   },
-  "tags": []
+  "tags": [ ]
 }
