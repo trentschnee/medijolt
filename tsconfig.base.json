@@ -10,19 +10,19 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [ "es2020", "dom" ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@medijolt/api/shared": ["libs/api-app/shared/src/index.ts"],
-      "@medijolt/api/users": ["libs/api-app/users/src/index.ts"],
+      "@medijolt/api/shared": [ "libs/api-shared/src/index.ts" ],
+      "@medijolt/emar-api": [ "libs/emar-api/src/index.ts" ],
       "@medijolt/user-management-api": [
         "libs/user-management-api/src/index.ts"
       ],
-      "@plugins/mongodb-executors": ["plugins/mongodb-executors/src/index.ts"],
-      "@shared/types": ["libs/shared/types/src/index.ts"]
+      "@plugins/mongodb-executors": [ "plugins/mongodb-executors/src/index.ts" ],
+      "@shared/types": [ "libs/shared/types/src/index.ts" ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [ "node_modules", "tmp" ]
 }

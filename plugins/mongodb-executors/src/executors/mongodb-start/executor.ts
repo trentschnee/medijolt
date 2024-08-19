@@ -10,7 +10,7 @@ export default async function mongodbStartExecutor(
 ) {
   return new Promise<{ success: boolean }>((resolve, reject) => {
     const dockerComposeFilePath = path.resolve(
-      options.dockerComposeFilePath ?? './apps/api-app/docker/docker-compose.yml'
+      options.dockerComposeFilePath
     );
 
     console.log(`Status: INITIALIZING | File: ${dockerComposeFilePath}`);

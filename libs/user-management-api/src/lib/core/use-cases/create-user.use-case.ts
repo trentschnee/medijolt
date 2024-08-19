@@ -11,6 +11,7 @@ export class CreateUserUseCase {
   ) { }
 
   async execute(createUserDto: CreateUserDto): Promise<User> {
+    
     const user = new User(
       uuid(),                   // Generate a unique ID
       createUserDto.email,

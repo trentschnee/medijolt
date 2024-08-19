@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid()) @map("id")
+  email     String   @unique
+  password  String
+  isEnabled Boolean  @default(true)
+  roles     UserRole[]
+
+  @@map("users") // Map to existing table "users"
+}
+
+model Role {
+  id          String       @id @default(uuid()) @map("id")
+  name        String       @unique
+  users       UserRole[]
+
+  @@map("roles") // Map to existing table "roles"
+}
+
+model UserRole {
+  id        String @id @default(uuid()) @map("id")
+  userId    String @db.Uuid
+  roleId    String @db.Uuid
+
+  user      User @relation(fields: [userId], references: [id])
+  role      Role @relation(fields: [roleId], references: [id])
+
+  @@unique([userId, roleId]) // Enforce uniqueness on the combination of userId and roleId
+  @@map("user_roles") // Map to existing table "user_roles"
+}

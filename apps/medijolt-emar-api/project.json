@@ -1,20 +1,13 @@
 {
-  "name": "user-management-api",
+  "name": "medijolt-emar-api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/user-management-api/src",
+  "sourceRoot": "apps/medijolt-emar-api/src",
   "projectType": "application",
   "targets": {
-
     "postgres-start": {
       "executor": "@plugins/mongodb-executors:mongodb-start",
       "options": {
-        "dockerComposeFilePath": "apps/user-management-api/docker/docker-compose.yml"
-      }
-    },
-    "postgres-stop": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "docker-compose -f apps/user-management-api/docker/docker-compose.yml down"
+        "dockerComposeFilePath": "apps/medijolt-emar-api/docker/docker-compose.yml"
       }
     },
     "build": {
@@ -24,12 +17,9 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/user-management-api",
-        "main": "apps/user-management-api/src/main.ts",
-        "tsConfig": "apps/user-management-api/tsconfig.app.json",
-        "assets": [ "apps/user-management-api/src/assets" ],
-        "isolatedConfig": true,
-        "webpackConfig": "apps/user-management-api/webpack.config.js",
+        "outputPath": "dist/apps/emar-api",
+        "main": "apps/medijolt-emar-api/src/main.ts",
+        "tsConfig": "apps/medijolt-emar-api/tsconfig.app.json",
         "tsPlugins": [
           {
             "name": "@nestjs/swagger/plugin",
@@ -42,11 +32,13 @@
               "introspectComments": true
             }
           }
-        ]
+        ],
+        "assets": [ "apps/medijolt-emar-api/src/assets" ],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/medijolt-emar-api/webpack.config.js"
       },
       "configurations": {
-        "development": {
-        },
+        "development": { },
         "production": { }
       }
     },
@@ -54,14 +46,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "user-management-api:build"
+        "buildTarget": "medijolt-emar-api:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "user-management-api:build:development"
+          "buildTarget": "medijolt-emar-api:build"
         },
         "production": {
-          "buildTarget": "user-management-api:build:production"
+          "buildTarget": "medijolt-emar-api:build"
         }
       },
       "dependsOn": [
@@ -75,14 +67,14 @@
       "executor": "@nx/eslint:lint",
       "outputs": [ "{options.outputFile}" ],
       "options": {
-        "lintFilePatterns": [ "apps/user-management-api/**/*.ts" ]
+        "lintFilePatterns": [ "apps/medijolt-emar-api/**/*.ts" ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": [ "{workspaceRoot}/coverage/{projectRoot}" ],
       "options": {
-        "jestConfig": "apps/user-management-api/jest.config.ts",
+        "jestConfig": "apps/medijolt-emar-api/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
