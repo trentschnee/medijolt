@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14
+    container_name: user-management-postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: zPETms
+      POSTGRES_DB: user_management
+    volumes:
+      - user-management-db:/var/lib/postgresql/data
+    ports:
+      - '5432:5432' # Expose the PostgreSQL port
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  user-management-db:

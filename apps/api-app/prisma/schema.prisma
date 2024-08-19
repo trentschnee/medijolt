@@ -14,7 +14,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  email String
-
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  password  String
+  isEnabled Boolean  @default(true)
+  roles     UserRole[]
 }
+
+model Role {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  name        String       @unique
+  permissions RolePermission[]
+  users       UserRole[]
+}
+
+model Permission {
+  id    String   @id @default(auto()) @map("_id") @db.ObjectId
+  name  String   @unique
+  roles RolePermission[]
+}
+
+model UserRole {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId // Add an auto-generated ID
+  userId    String @db.ObjectId
+  roleId    String @db.ObjectId
+
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@unique([userId, roleId]) // Enforce uniqueness on the combination of userId and roleId
+}
+
+model RolePermission {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId // Add an auto-generated ID
+  roleId       String @db.ObjectId
+  permissionId String @db.ObjectId
+
+  role       Role       @relation(fields: [roleId], references: [id])
+  permission Permission @relation(fields: [permissionId], references: [id])
+
+  @@unique([roleId, permissionId]) // Enforce uniqueness on the combination of roleId and permissionId
+}
+

@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma.service';
+import { PrismaService } from './prisma.service'; // Adjust the path as needed
 
 @Module({
-  controllers: [],
   providers: [PrismaService],
-  exports: [PrismaService],
+  exports: [PrismaService], // Make sure PrismaService is exported
 })
 export class MedijoltApiSharedModule { }

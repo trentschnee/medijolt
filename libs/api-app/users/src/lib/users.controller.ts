@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { User, User as UserModel } from '@prisma/client';
+import { Role, User } from '@prisma/client';
+import { CreateRoleDto } from './create-role-dto';
 import { CreateUserDto } from './create-user-dto';
 import { UsersService } from './users.service';
 @ApiTags('User')
@@ -9,13 +10,13 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
   @Post()
-  async create(
-    @Body() CreateUserDto: CreateUserDto,
-  ): Promise<UserModel> {
-    const userData = { id: CreateUserDto.id, email: CreateUserDto.email };
-    return this.usersService.create(userData);
+  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return this.usersService.create(createUserDto);
   }
-
+  @Post('roles')
+  async createRole(@Body() createRoleDto: CreateRoleDto): Promise<Role> {
+    return this.usersService.createRole(createRoleDto);
+  }
   @Get()
   async findAll(): Promise<User[]> {
     return this.usersService.findAll();
